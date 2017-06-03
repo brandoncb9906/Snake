@@ -11,6 +11,11 @@ class Game:
 	def print_map(self):
 		self.__map.print_map()
 
+	def test(self):
+		self.print_map()
+		self.__snake.move()
+		self.print_map()
+
 level_data = [{
 	"m_size": 5,
 	"s_size": 1
