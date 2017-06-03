@@ -15,6 +15,7 @@ class Game:
 		self.print_map()
 		self.__snake.move()
 		self.print_map()
+		self.__map.find_empty()
 
 level_data = [{
 	"m_size": 5,

@@ -1,4 +1,5 @@
 from classes.block import *
+import random
 
 class Map:
 	def __init__(self, width, height, snake):
@@ -38,3 +39,19 @@ class Map:
 					elif btype == WALL:
 						str_line += "[]"
 			print(str_line)
+
+	def find_empty(self):
+		while True:
+			x = random.randrange(0, self.__width)
+			y = random.randrange(0, self.__height)
+
+			# Revisar que el bloque sea vacio
+			block = self.__map[x][y]
+			if block.get_type() != EMPTY:
+				continue
+			# Revisar que el bloque no sea del snake
+			pos = self.__snake.get_pos()
+			if (x, y) in pos:
+				continue
+
+			return block
