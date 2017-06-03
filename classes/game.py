@@ -9,7 +9,7 @@ class Game:
 		self.__map = Map(size, size, self.__snake, self.__ldata["walls"])
 
 	def print_map(self):
-		self.__map.print_map()
+		print(self.__map.get_map())
 
 	def test(self):
 		self.print_map()

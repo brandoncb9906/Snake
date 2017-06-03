@@ -20,27 +20,24 @@ class Map:
 			the_map.append(line)
 		return the_map
 
-	def print_map(self):
+	def get_map(self):
 		pos = self.__snake.get_pos()
 
+		map = []
+
 		for x in range(self.__width):
-			str_line = ""
+			line = []
 			for y in range(self.__height):
 				block = self.__map[x][y]
 
 				if (x, y) in pos:
-					str_line += "x "
+					# Aquí esta coordenada pertenece al snake
+					line.append(SNAKE)
 				else:
-					btype = block.get_type()
-					if btype == EMPTY:
-						str_line += ". "
-					elif btype == FOOD:
-						str_line += "y "
-					elif btype == LIFE:
-						str_line += "u "
-					elif btype == WALL:
-						str_line += "[]"
-			print(str_line)
+					line.append(block.get_type())
+
+			map.append(line)
+		return map
 
 	def find_empty(self):
 		while True:

@@ -13,3 +13,6 @@ FOOD = "food"
 LIFE = "life"
 BONUS = "bonus"
 WALL = "wall"
+
+# Bloque especial usado en UI para indicar que el snake está aquí
+SNAKE = "snake"
