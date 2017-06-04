@@ -13,18 +13,27 @@ class Snake:
 	def get_pos(self):
 		return self.__pos
 
-	def move(self):
+	def move(self, grow = False):
+		self.__pos.append(self.next_pos())
+		if not grow:
+			self.__pos.pop(0)
+
+	def get_dir(self):
+		return self.__dir
+
+	def change_dir(self, dir):
+		self.__dir = dir
+
+	def next_pos(self):
 		x, y = self.__pos[len(self.__pos) - 1]
 		if self.__dir == RIGHT:
-			self.__pos.append((x, y + 1))
+			return (x, y + 1)
 		if self.__dir == LEFT:
-			self.__pos.append((x, y - 1))
+			return (x, y - 1)
 		if self.__dir == UP:
-			self.__pos.append((x - 1, y))
+			return (x - 1, y)
 		if self.__dir == DOWN:
-			self.__pos.append((x + 1, y))
-
-		self.__pos.pop(0)
+			return (x + 1, y)
 
 
 # Direcciones
@@ -32,5 +41,3 @@ RIGHT = "right"
 LEFT = "left"
 UP = "up"
 DOWN = "down"
-
-tupla = (1, 2, "alonso")

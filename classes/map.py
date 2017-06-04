@@ -9,6 +9,7 @@ class Map:
 		self.__walls = walls
 		self.__map = self.initialize(width, height)
 		self.create_walls()
+		self.put_apple()
 
 	def initialize(self, width, height):
 		the_map = []
@@ -39,6 +40,15 @@ class Map:
 			map.append(line)
 		return map
 
+	def get_block(self, x, y):
+		return self.__map[x][y]
+
+	def is_offmap(self, x, y):
+		if x < 0 or y < 0 or x >= self.__width or y >= self.__height:
+			return True
+		else:
+			return False
+
 	def find_empty(self):
 		while True:
 			x = random.randrange(0, self.__width)
@@ -60,5 +70,10 @@ class Map:
 			block = self.find_empty()
 			block.set_type(WALL)
 
+	def put_apple(self):
+		block = self.find_empty()
+		block.set_type(FOOD)
 
-
+	def put_bonus(self):
+		block = self.find_empty()
+		block.set_type(BONUS)
